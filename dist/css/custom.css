@@ -10378,3 +10378,9 @@ body.lang-ar .option__select__item__title .badge svg {
 .tools__item{
     border-radius: 15px;
 }
+li {
+    user-select: none; /* Standard */
+    -webkit-user-select: none; /* Safari/Chrome */
+    -moz-user-select: none; /* Older Firefox */
+  }
+  
