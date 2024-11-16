@@ -10375,3 +10375,6 @@ body.lang-ar .option__select__item__title .badge {
 body.lang-ar .option__select__item__title .badge svg {
     margin: 0;
 }
+.tools__item{
+    border-radius: 15px;
+}
