@@ -80,6 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // Clear textarea logic
+    document.getElementById("clear").addEventListener("click", () => {
+        // Clear the content of the textarea
+        document.getElementById("textArea").value = "";
+    });
+
     //Reset Button Code
     let initialText = ""; // Empty initially
 
@@ -101,41 +107,25 @@ document.addEventListener("DOMContentLoaded", function () {
         a.click();
     });
 
-    
-        
     document.getElementById("saveAsPdf").addEventListener("click", () => {
-        // Check if jsPDF is loaded
-        if (!window.jsPDF) {
-            alert("jsPDF library not loaded. Please check the CDN link.");
-            return;
-        }
-    
-        // Initialize jsPDF
+        const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-        const text = document.getElementById("textArea").value; // Get the textarea content
-        const margin = 10; // Margin for the PDF
-        const pageWidth = doc.internal.pageSize.width; // Width of the page
-        const pageHeight = doc.internal.pageSize.height; // Height of the page
-        const lineHeight = 10; // Line height for text
-        const usableWidth = pageWidth - margin * 2; // Width of text area
-        let y = margin; // Initial y position
     
-        // Split the text into lines that fit within the usable width
-        const lines = doc.splitTextToSize(text, usableWidth);
+        // Get text from the textarea
+        const text = document.getElementById("textArea").value;
     
-        lines.forEach(line => {
-            if (y + lineHeight > pageHeight - margin) {
-                doc.addPage(); // Add a new page when content exceeds the current page height
-                y = margin;
-            }
-            doc.text(line, margin, y); // Add text to the PDF
-            y += lineHeight;
-        });
+        // Define a max width for the text (e.g., 180 units)
+        const maxWidth = 180;
     
-        // Save the PDF
+        // Split the text into multiple lines if necessary
+        const splitText = doc.splitTextToSize(text, maxWidth);
+    
+        // Add wrapped text to PDF document
+        doc.text(splitText, 10, 10); // You can adjust the x, y position for text placement
+    
+        // Save the PDF as a file
         doc.save("text-file.pdf");
     });
-    
     
         
 
