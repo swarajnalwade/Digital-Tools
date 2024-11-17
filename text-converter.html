@@ -30,27 +30,28 @@
     <div class="row mb-3">
         
         <div class="col">
-              <div class="container">
+              <div class="container" style="text-align: right;">
+
                 <button id="copyText" class="btn btn-primary">Copy</button>
+                <button id="clear" class="btn btn-primary">Clear</button>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" style="border-radius: 9px; padding: 8px;">
-                        Save As <img src="img/icons/dropdownarrow.svg">
+                        Save<img src="img/icons/dropdownarrow.svg">
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" id="saveAsTxt" >Save As Text File</a></li>
                         <li><a class="dropdown-item" id="saveAsPdf" >Save As PDF</a></li>
                     </ul>
                 </div>
-                <button id="clear" class="btn btn-primary">Clear</button>
-                <button id="reset" class="btn btn-primary">Reset</button>
               </div>
 
                <div class="container">
                 <textarea id="textArea" class="form-control p-2" 
-                  style="border: 1px solid black; resize: both; overflow: auto; min-height: 300px; width: 100%;"></textarea>
+                  style="border: 1px solid black; resize: both; overflow: auto; min-height: 300px; width: 100%;" placeholder="Enter text here" ></textarea>
               </div>
 
               <div class="container" style="margin-top: 5px; margin-bottom: 5px;">
+                <button id="reset" class="btn btn-info">Reset</button>
                 <button id="toUppercase" class="btn btn-info">Uppercase</button>
                 <button id="toLowercase" class="btn btn-info">Lowercase</button>
                 <button id="toTitlecase" class="btn btn-info">Title Case</button>
@@ -94,6 +95,18 @@
     padding: 8px 12px;
     background-color: #ffd333;
     text-align: center;
+}
+
+/* Default styles for the button */
+.btn.btn-info {
+  width: auto;
+}
+
+/* For small devices, make the button full width */
+@media (max-width: 576px) {
+  .btn.btn-info {
+    width: 100%;
+  }
 }
 
 </style>
