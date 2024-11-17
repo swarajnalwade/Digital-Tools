@@ -6180,12 +6180,13 @@ span.compact {
     border-radius: 8px;
     padding: 8px 20px;
     line-height: 26px;
-    color: #fff;
+    color: #000000;
     background-color: #ffd333;
 }
 @media (max-width: 767.98px) {
     .btn {
-        width: 100%;
+        width: auto;
+        /* width: 100%; */
     }
 }
 .btn:disabled {
@@ -6194,8 +6195,8 @@ span.compact {
 }
 .btn:focus,
 .btn:hover {
-    color: #fff;
-    background-color: #bd060a;
+    color: #ffd333;
+    background-color: #000000;
 }
 .btn:focus {
     -webkit-box-shadow: none;
