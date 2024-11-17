@@ -15,7 +15,6 @@
         const resetBtn = document.getElementById("reset");
         const clearBtn = document.getElementById("clear");
         const textArea = document.getElementById("textArea");
-        const unminifyBtn = document.getElementById("unminify");
         
         let initialText = textArea.value; // Keep track of the initial value in the text area
     
