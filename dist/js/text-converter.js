@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     loadHTML('header.html', 'header');
     loadHTML('footer.html', 'footer');
 
-    // Disable text selection
-    document.addEventListener('selectstart', function (e) {
-        e.preventDefault();
-    });
-
     // Text Converter Logic
     const textArea = document.getElementById("textArea");
     const toUppercaseBtn = document.getElementById("toUppercase");
@@ -98,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         textArea.value = initialText; // Resets the text area to its initial state
     });
         
-    // Save as file logic
+    // Save as text file
     document.getElementById("saveAsTxt").addEventListener("click", () => {
         const blob = new Blob([textArea.value], { type: "text/plain" });
         const a = document.createElement("a");
@@ -107,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         a.click();
     });
 
+    // Save as pdf file
     document.getElementById("saveAsPdf").addEventListener("click", () => {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -127,7 +123,38 @@ document.addEventListener("DOMContentLoaded", function () {
         doc.save("text-file.pdf");
     });
     
+    //To count words, characters, lines, sentense and paragraph
+    function updateCounts() {
+        const text = document.getElementById('textArea').value;
         
-
+        // Word count (split by spaces)
+        const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+  
+        // Character count
+        const characterCount = text.length;
+  
+        // Sentence count (split by common sentence-ending punctuation)
+        const sentenceCount = text.split(/[.!?]+/).filter(Boolean).length;
+  
+        // Line count (split by newline characters)
+        const lineCount = text.split(/\n/).length;
+  
+        // Paragraph count (split by double newlines)
+        const paragraphCount = text.split(/\n\s*\n/).length;
+  
+        // Update the DOM elements
+        document.getElementById('wordcount').textContent = `Words: ${wordCount}`;
+        document.getElementById('charactercount').textContent = `Characters: ${characterCount}`;
+        document.getElementById('Sentencecount').textContent = `Sentences: ${sentenceCount}`;
+        document.getElementById('linecount').textContent = `Lines: ${lineCount}`;
+        document.getElementById('Paragraphcount').textContent = `Paragraphs: ${paragraphCount}`;
+      }
+  
+      // Attach event listener to the textarea
+      window.onload = function() {
+        const textArea = document.getElementById('textArea');
+        textArea.addEventListener('input', updateCounts);
+        updateCounts(); // Initial call to display counts when the page loads
+      };
 
 });
