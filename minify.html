@@ -30,11 +30,18 @@
               </div>
 
                <div class="container">
+                <span style="margin: 5px; color: red; display: none;" id="error-msg">Please Select The Code Language</span>
                 <textarea id="textArea" class="form-control p-2" 
                   style="border: 1px solid black; resize: both; overflow: auto; min-height: 400px; width: 100%;     border-radius: 10px; " placeholder="Paste Your Code Here To Minify It" ></textarea>
               </div>
 
               <div class="container" style="margin-top: 5px; margin-bottom: 5px;">
+                <select id="codeType" class="btn btn-info" style="margin-top: 10px;">
+                  <option value="Select">Select Code Language</option>
+                  <option value="js">JavaScript</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                </select>
                 <button id="minify" class="btn btn-info">Minify Code</button>
                 <button id="copyText" class="btn btn-info">Copy</button>
                 <button id="clear" class="btn btn-info">Clear</button>

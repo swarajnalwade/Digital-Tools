@@ -7,8 +7,10 @@
     <title>My Tool Site</title>
 
     <link href="dist/css/custom.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/terser/5.12.0/terser.min.js"></script> <!-- Terser CDN -->
-    <script src="https://unpkg.com/terser@5.12.0/dist/bundle.min.js"></script>
+<!-- Load Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-css.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.0/js/lib/beautify-html.js"></script>
     <script src="dist/js/unminify.js"></script>
 
 </head>
@@ -30,11 +32,18 @@
               </div>
 
                <div class="container">
+                <span style="margin: 5px; color: red; display: none;" id="error-msg">Please Select The Code Language</span>
                 <textarea id="textArea" class="form-control p-2" 
                   style="border: 1px solid black; resize: both; overflow: auto; min-height: 400px; width: 100%;     border-radius: 10px; " placeholder="Paste Your Code Here To Unminify It" ></textarea>
               </div>
 
               <div class="container" style="margin-top: 5px; margin-bottom: 5px;">
+                <select id="codeType" class="btn btn-info" style="margin-top: 10px;">
+                  <option value="Select">Select Code Language</option>
+                  <option value="js">JavaScript</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                </select>
                 <button id="unminify" class="btn btn-info">Unminify Code</button>
                 <button id="copyText" class="btn btn-info">Copy</button>
                 <button id="clear" class="btn btn-info">Clear</button>
@@ -89,3 +98,4 @@
 }
 
 </style>
+
